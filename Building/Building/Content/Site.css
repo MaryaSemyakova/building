@@ -1,0 +1,21 @@
+﻿.nav li{
+      width:100px;
+      text-align:center;
+  }
+
+.mybutton {
+    border-radius: 0;
+    background: red;
+    width: 120px;
+}
+
+.btn-round {
+    background: red;
+    border-radius:30px;
+    color: white;
+}
+
+#home {
+    background: url(images/main_background.png) no-repeat center center;
+    margin: 0 !important;
+}
