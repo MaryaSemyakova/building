@@ -1,21 +1,95 @@
-﻿.nav li{
-      width:100px;
-      text-align:center;
-  }
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
 
-.mybutton {
-    border-radius: 0;
-    background: red;
-    width: 120px;
+
+.small-head-home {
+    font-size: 30px;
+    font-weight:100;
+    color: #191919;
+}
+
+.order-text {
+    font-size: 30px;
+}
+.nav li {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left:30px;
+    font-weight: normal;
+}
+
+    .nav li a {
+        color: #191919 !important;
+    }
+
+        .nav li a:hover {
+            color: #e50019 !important;
+            text-decoration: none;
+        }
+    
+    .mybutton {
+        border-radius: 0;
+        background: #e50019;
+        width: 185px;
+        height: 55px;
+        font-size: 18px;
+        color: white;
+        text-transform: uppercase;
+        vertical-align: central;
+    }
+.dark {
+    background: #292929;
 }
 
 .btn-round {
-    background: red;
-    border-radius:30px;
+    background: #e50019;
+    border-radius: 30px;
     color: white;
 }
 
 #home {
     background: url(images/main_background.png) no-repeat center center;
+    background-size:cover;
     margin: 0 !important;
 }
+
+.head {
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    font-size: 60px;
+    color: #191919;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.head-with-round::before, .head-with-round::after, head-with-bottom::backdrop {
+    padding: 30px;
+    width: 120px;
+    height: 3px;
+}
+
+.second-head {
+    font-size: 20px;
+    color: #888888;
+}
+
+p {
+    font-size: 18px;
+    color: #888888;
+}
+
+.service-head {
+    font-weight: 700;
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+    .service-head:hover {
+        color: #191919;
+    }
+    .service-head span {
+        font-size: 18px;
+        color: #888888;
+    }
