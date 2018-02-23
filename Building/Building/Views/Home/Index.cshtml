@@ -1,11 +1,18 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="buildApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЭРСТЭД - Строительная компания</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    <script src="~/Scripts/angular/mainController.js"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
 </head>
@@ -28,11 +35,13 @@
                     <li><a href="#contacts">Контакты</a></li>
 
                 </ul>
-                <button class="btn btn-round" style="margin-left:30px;"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+                <button class="btn btn-round" style="margin-left:30px;" data-toggle="modal" data-target="#request">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </nav>
-
+    <div ng-controller="mainController">
     <div id="home" class="position-relative p-3 p-md-5 m-md-3 text-center">
         <div class="col-md-9 p-lg-5 mx-auto my-5">
             <h1 class="font-weight-bold head">Строительная<br />компания</h1>
@@ -42,37 +51,131 @@
     </div>
     <div class="dark">
         <div class="container">
-            <div class="row order">
-                <div class="col-md-6 offset-md-2"><p class="text-white order-text"><span style="font-weight:bold">Заказать звонок</span> для консультации со специалистом</p></div>
-                <div class="col-md-2" ><button class="btn mybutton" style="margin-top:15px;">Заказать</button></div>
+            <div class="row order media">
+                <div class="col-md-6 offset-md-2 media-body">
+                    <p class="text-white order-text">
+                        <span style="font-weight:bold">Заказать звонок</span> для консультации со специалистом
+                    </p>
+                </div>
+                <div class="col-md-2 align-self-center">
+                    <button class="btn mybutton" style="margin-top:15px;" data-toggle="modal" data-target="#request">Заказать</button>
+                </div>
             </div>
         </div>
     </div>
     <div id="advantages" class="container-fluid">
         <div class="row">
-            <div class="col-lg-5" style="background: darkgreen;"><div style="height: 100px;"></div></div>
+            <div class="col-lg-5 advantages-photo"></div>
             <div class="col-lg-5 offset-lg-2"><p>ghbdtn</p></div>
         </div>
     </div>
     <div id="services"></div>
     <div class="dark">
         <div class="container">
-            <div class="row order">
-                <div class="col-md-6 offset-md-2" style="padding-top:5px;"><p class="text-white order-text">Интересны наши цены?</p></div>
-                <div class="col-md-2"><button class="btn mybutton">Заказать прайс</button></div>
+            <div class="row order media">
+                <div class="col-md-6 offset-md-2 align-self-center"><p class="text-white order-text">Интересны наши цены?</p></div>
+                <div class="col-md-2 media-body"><button class="btn mybutton" data-toggle="modal" data-target="#requestPrice">Заказать прайс</button></div>
             </div>
         </div>
     </div>
     <div id="certificates"></div>
     <div id="comments"></div>
     <div id="contacts"></div>
+    <div id="requestPrice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="requestPrice" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form name="formPrice" ng-submit="sendRequestPrice(formPrice, request)" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div><h5 class="modal-title">Заявка на консультацию по прайс-листу</h5><div class="line" style="margin-top:15px;"></div></div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div ng-class="status == '200' ? 'alert alert-success' : 'alert alert-danger'" ng-show="status">
+                            {{data}}
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.name">Имя<span class="red">*</span></label>
+                            <input class="form-control" name="name" ng-model="request.name" value="{{request.name}}" required type="text" placeholder="Введите ваше имя">
+                            <span class="red" ng-show="formPrice.$submitted && !formPrice.name.$valid">Обязательное поле</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.email">Электронная почта<span class="red">*</span></label>
+                            <input class="form-control" name="email" ng-model="request.email" value="{{request.email}}" required ng-pattern="emailFormat" type="text" placeholder="Введите адрес вашей электронной почты">
+                            <span class="red" ng-show="formPrice.email.$error.pattern">Неверный формат почты</span>
+                            <span class="red" ng-show="formPrice.$submitted && !formPrice.name.$valid">Обязательное поле</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.phone">Телефон</label>
+                            <input class="form-control" name="phone" ng-max="10" ng-model="request.phone" pattern="[0-9]{10}" value="{{request.phone}}" type="text" placeholder="Введите ваш телефон">
+                            <span class="red" ng-show="formPrice.phone.$error.pattern">Неверный формат телефона</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.message">Сообщение</label>
+                            <textarea class="form-control" ng-model="request.message" value="{{request.message}}" id="Textarea" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col align-self-center">
+                            <button type="submit" class="btn mybutton">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    <div id="request" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="request" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form name="form" ng-submit="sendRequest(form, request)" novalidate>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div><h5 class="modal-title" id="exampleModalLongTitle">Введите данные для подачи заявки</h5><div class="line" style="margin-top:15px;"></div></div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div ng-class="status == '200' ? 'alert alert-success' : 'alert alert-danger'" ng-show="status">
+                            {{data}}
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.name">Имя<span class="red">*</span></label>
+                            <input class="form-control" name="name" ng-model="request.name" value="{{request.name}}" required type="text" placeholder="Введите ваше имя">
+                            <span class="red" ng-show="form.$submitted && !form.name.$valid">Обязательное поле</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.email">Электронная почта<span class="red">*</span></label>
+                            <input class="form-control" name="email" ng-model="request.email" value="{{request.email}}" required ng-pattern="emailFormat" type="text" placeholder="Введите адрес вашей электронной почты">
+                            <span class="red" ng-show="form.email.$error.pattern">Неверный формат почты</span>
+                            <span class="red" ng-show="form.$submitted && !form.name.$valid">Обязательное поле</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.phone">Телефон</label>
+                            <input class="form-control" name="phone" ng-max="10" ng-model="request.phone" pattern="[0-9]{10}" value="{{request.phone}}" type="text" placeholder="Введите ваш телефон">
+                            <span class="red" ng-show="form.phone.$error.pattern">Неверный формат телефона</span>
+                        </div>
+                        <div class="form-group">
+                            <label ng-for="request.message">Сообщение</label>
+                            <textarea class="form-control" ng-model="request.message" value="{{request.message}}" id="Textarea" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col align-self-center">
+                            <button type="submit" class="btn mybutton">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     <hr />
     <footer>
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    
 </body>
 </html>

@@ -30,7 +30,11 @@
     color: #e50019 !important;
     text-decoration: none;
 }
-    
+
+.red {
+    color: #e50019;
+}
+
 .mybutton {
     border-radius: 0;
     background: #e50019;
@@ -61,7 +65,8 @@
 
 .btn-round {
     background: #e50019;
-    border-radius: 30px;
+    border-radius: 25px;
+    height:42px;
     color: white;
     margin-left: 30px;
 }
@@ -115,9 +120,38 @@ p {
         color: #888888;
     }
 
+.modal-content {
+    border-radius: 0;
+}
 
-@media screen and (min-width : 768px) and (max-width : 1024px)
-{
+.modal-header {
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    color: #191919;
+    text-transform: uppercase;
+}
+
+.line {    
+    width: 120px;
+    height: 3px;
+    background: #e50019;
+    display:block;
+}
+    
+.modal-footer {
+    border-top: none !important;
+    text-align: center;
+}
+.form-control {
+    border-radius: 0 !important;
+    border-color: #888888;
+}
+
+label {
+    color: #888888;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1024px) {
     .nav li {
         font-size: 10px;
         margin-left: 15px;
