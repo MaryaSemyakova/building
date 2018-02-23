@@ -7,13 +7,14 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
 </head>
     <body>
-        <nav class="navbar navbar-expand-md fixed-top" style="background: none;">
+        <nav class="navbar navbar-expand-md fixed-top">
             <div class="container">
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggler text-white" data-toggle="collapse" data-target=".navbar-collapse">
                     &#9776;
                 </button>
 
@@ -25,8 +26,9 @@
                         <li><a href="#certificates">Сертификаты</a></li>
                         <li><a href="#comments">Отзывы</a></li>
                         <li><a href="#contacts">Контакты</a></li>
-                        <li><button class="btn btn-round"><i></i></button></li>
+
                     </ul>
+                    <button class="btn btn-round" style="margin-left:30px;"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
                 </div>
             </div>
         </nav>
