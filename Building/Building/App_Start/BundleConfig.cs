@@ -23,6 +23,13 @@ namespace Building
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                      "~/Scripts/angular.min.js",
+                      "~/Scripts/angular-route.min.js",
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+                      "~/Scripts/angular-ui/ui-bootstrap.min.js",
+                      "~/Scripts/angular/buildApp.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
