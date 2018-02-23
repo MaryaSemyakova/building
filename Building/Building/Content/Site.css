@@ -51,6 +51,11 @@
     background: white;
 }
 
+.advantages-button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .order {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -85,15 +90,31 @@
     text-transform: uppercase;
     font-size: 60px;
     color: #191919;
+   
+}
+
+#home .head {
     margin-bottom: 50px;
     margin-top: 100px;
 }
 
-.head-with-round::before, .head-with-round::after, head-with-bottom::backdrop {
-    padding: 30px;
-    width: 120px;
-    height: 3px;
+#advantages .head {
+    margin-bottom: 25px;
+    margin-top: 100px;
 }
+
+#advantages ul{
+    color: #888;
+    font-size: 18px;
+    margin-left: 100px;
+    padding-top: 55px;
+}
+
+    #advantages ul li {
+        margin-bottom: 50px;
+        list-style-image: url(/Content/images/arrow.png);       
+    }
+
 
 .second-head {
     font-size: 20px;
@@ -151,6 +172,11 @@ label {
     color: #888888;
 }
 
+.advantages-photo {
+    background: url(/Content/images/featurs.png) left top no-repeat;
+    height: 768px;
+}
+
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .nav li {
         font-size: 10px;
@@ -163,11 +189,24 @@ label {
     .head {
         font-size: 50px;
         color: #191919;
+    }
+
+    #home .head {
         margin-bottom: 40px;
         margin-top: 120px;
     }
+
+    #advantages .head {
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
     .small-head-home{
         font-size:20px;
+    }
+
+    .second-head {
+        font-size: 18px;
     }
     .order-text{
         font-size:20px;
@@ -183,6 +222,32 @@ label {
         padding-top: 35px;
         padding-bottom: 35px;
     }
+
+    .advantages-photo {
+        background: url(/Content/images/featurs.png) left center no-repeat;
+        background-size:cover;
+        height: 200px;
+        width:100%;
+    }
+
+    #advantages ul {
+        color: #888;
+        font-size: 16px;
+        margin-left: 50px;
+        padding-top: 30px;
+    }
+
+        #advantages ul li {
+            margin-bottom: 30px;
+        }
+
+    .advantages-button {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
 }
 
 @media screen and (min-width : 320px) and (max-width : 767px) {
@@ -215,8 +280,20 @@ label {
     .head {
         font-size: 30px;
         color: #191919;
+    }
+
+    #home .head {
+        font-size: 30px;
+        color: #191919; 
+    }
+
+    #advantages .head {
         margin-bottom: 15px;
-        margin-top: 150px;
+        margin-top: 30px;
+    }
+
+    .second-head {
+        font-size: 16px;
     }
     .small-head-home {
         font-size: 16px;
@@ -236,5 +313,28 @@ label {
         height: 40px;
         font-size: 14px;
         margin-top: 10px;
+    }
+
+    .advantages-photo {
+        background: url(/Content/images/featurs.png) left center no-repeat;
+        height: 150px;
+    }
+
+    #advantages ul {
+        color: #888;
+        font-size: 14px;
+        margin-left: 40px;
+        padding-top: 15px;
+    }
+
+        #advantages ul li {
+            margin-bottom: 15px;
+        }
+
+    .advantages-button {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align:center;
     }
 }
