@@ -108,7 +108,7 @@ p {
     }
 
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+@media screen and (min-width : 768px) and (max-width : 1024px)
 {
     .nav li {
         font-size: 10px;
@@ -118,9 +118,18 @@ p {
     .btn-round {
         margin-left: 15px;
     }
+    .head {
+        font-size: 50px;
+        color: #191919;
+        margin-bottom: 40px;
+        margin-top: 120px;
+    }
+    .small-head-home{
+        font-size:20px;
+    }
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+@media screen and (min-width : 320px) and (max-width : 767px) {
     .navbar {
         background: #292929;
         color: white;
@@ -145,5 +154,15 @@ p {
     .nav li:hover, .nav li:hover a {
         background: white;
         color: #292929 !important;
+    }
+
+    .head {
+        font-size: 30px;
+        color: #191919;
+        margin-bottom: 15px;
+        margin-top: 150px;
+    }
+    .small-head-home {
+        font-size: 16px;
     }
 }
