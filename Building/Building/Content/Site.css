@@ -198,8 +198,6 @@ label {
     color: #888888;
 }
 
-<<<<<<< HEAD
-
 #services img {
     opacity: 0.3; 
     width:100%;
@@ -262,9 +260,6 @@ label {
 
 @media screen and (min-width : 768px) and (max-width : 1024px) {
 
-=======
-@media screen and (min-width : 768px) and (max-width : 1024px) {
->>>>>>> master
     .nav li {
         font-size: 10px;
         margin-left: 15px;
