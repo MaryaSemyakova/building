@@ -133,8 +133,15 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\build.png" />
+    <Content Include="Content\images\cleaning.png" />
+    <Content Include="Content\images\electricity.png" />
     <Content Include="Content\images\featurs.png" />
+    <Content Include="Content\images\home.png" />
     <Content Include="Content\images\main_background.png" />
+    <Content Include="Content\images\window.png" />
+    <Content Include="Content\images\work.png" />
+    <Content Include="Content\images\Трубы.png" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
@@ -173,6 +180,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular\buildApp.js" />
     <Content Include="Scripts\angular\mainController.js" />
+    <Content Include="Scripts\angular\templates\serviceBlockTemplate.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

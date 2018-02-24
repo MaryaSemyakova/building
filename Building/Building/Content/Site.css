@@ -94,15 +94,15 @@
 }
 
 #home .head {
-    margin-bottom: 50px;
-    margin-top: 100px;
+    padding-bottom: 50px;
+    padding-top: 100px;
 }
 
-#advantages .head {
-    margin-bottom: 25px;
-    margin-top: 100px;
+#advantages .head, #services .head {
+    padding-bottom: 25px;
+    padding-top: 100px;
 }
-
+   
 #advantages ul{
     color: #888;
     font-size: 18px;
@@ -110,11 +110,14 @@
     padding-top: 55px;
 }
 
-    #advantages ul li {
-        margin-bottom: 50px;
-        list-style-image: url(/Content/images/arrow.png);       
-    }
+#advantages ul li {
+    margin-bottom: 50px;
+    list-style-image: url(/Content/images/arrow.png);       
+}
 
+#services {
+    background: #eaeaea;
+}
 
 .second-head {
     font-size: 20px;
@@ -131,16 +134,64 @@ p {
     color: white;
     font-size: 24px;
     text-transform: uppercase;
+    padding-left:10%;
+    padding-right:10%;
 }
 
-    .service-head:hover {
-        color: #191919;
+.service-block:hover .service-head {
+    color: #191919;
+}
+    .service-block:hover .service-head span {
+        display: block;
     }
+    
     .service-head span {
-        font-size: 18px;
+        font-size: 16px;
         color: #888888;
+        text-transform: none;
+        display: none;
+    }
+.service-block {
+    padding: 0;
+    text-align: center;
+    background: black;
+    font-weight: 700;
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+    .service-block:hover {
+        background: white;
+        color: #191919;
+        cursor:pointer;
     }
 
+
+
+#services img {
+    opacity: 0.3; 
+    width:100%;
+}
+
+#services .text {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+#services a {
+    color: #4758a5;
+    font-weight:600;
+    font-size:16px;
+}
+
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+    
 .modal-content {
     border-radius: 0;
 }
@@ -151,6 +202,7 @@ p {
     color: #191919;
     text-transform: uppercase;
 }
+
 
 .line {    
     width: 120px;
@@ -178,6 +230,7 @@ label {
 }
 
 @media screen and (min-width : 768px) and (max-width : 1024px) {
+
     .nav li {
         font-size: 10px;
         margin-left: 15px;
