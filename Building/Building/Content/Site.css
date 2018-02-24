@@ -167,7 +167,38 @@ p {
         cursor:pointer;
     }
 
+.modal-content {
+    border-radius: 0;
+}
 
+.modal-header {
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    color: #191919;
+    text-transform: uppercase;
+}
+
+.line {    
+    width: 120px;
+    height: 3px;
+    background: #e50019;
+    display:block;
+}
+    
+.modal-footer {
+    border-top: none !important;
+    text-align: center;
+}
+.form-control {
+    border-radius: 0 !important;
+    border-color: #888888;
+}
+
+label {
+    color: #888888;
+}
+
+<<<<<<< HEAD
 
 #services img {
     opacity: 0.3; 
@@ -231,6 +262,9 @@ label {
 
 @media screen and (min-width : 768px) and (max-width : 1024px) {
 
+=======
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+>>>>>>> master
     .nav li {
         font-size: 10px;
         margin-left: 15px;
